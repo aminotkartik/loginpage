@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Campus Plus — The Ultimate PCCOE Forum"
+    />
+    <meta name="theme-color" content="#020713" />
+    <!-- Social metadata: update og:url and og:image to your final public domain after deployment. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Campus Plus" />
+    <meta property="og:title" content="Campus Plus — The Ultimate PCCOE Forum" />
+    <meta property="og:description" content="Discover Campus Plus, the ultimate PCCOE forum." />
+    <meta property="og:image" content="./assets/og-campus-plus.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Campus Plus — The Ultimate PCCOE Forum" />
+    <meta name="twitter:description" content="Discover Campus Plus, the ultimate PCCOE forum." />
+    <meta name="twitter:image" content="./assets/og-campus-plus.png" />
+    <title>Campus Plus | The Ultimate PCCOE Forum</title>
+
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preload" href="./assets/fonts/Boldonse-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="./assets/fonts/DMMono-Medium.ttf" as="font" type="font/ttf" crossorigin />
+
+    <!-- Local, version-locked Three.js modules: the page does not depend on a CDN at runtime. -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/three.module.js",
+          "three/addons/": "./vendor/three/addons/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader" role="status" aria-live="polite">
+      <div class="preloader-content">
+        <div class="ghost-loader" aria-hidden="true">
+          <svg
+            class="ghost-svg"
+            height="88"
+            viewBox="0 0 512 512"
+            width="88"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <linearGradient id="loaderGhostBlue" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="#2b9fff" />
+                <stop offset="48%" stop-color="#0d67d2" />
+                <stop offset="100%" stop-color="#06284d" />
+              </linearGradient>
+              <filter id="loaderGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <path
+              class="ghost-body"
+              d="m508.374 432.802s-46.6-39.038-79.495-275.781c-8.833-87.68-82.856-156.139-172.879-156.139-90.015 0-164.046 68.458-172.879 156.138-32.895 236.743-79.495 275.782-79.495 275.782-15.107 25.181 20.733 28.178 38.699 27.94 35.254-.478 35.254 40.294 70.516 40.294 35.254 0 35.254-35.261 70.508-35.261s37.396 45.343 72.65 45.343 37.389-45.343 72.651-45.343c35.254 0 35.254 35.261 70.508 35.261s35.27-40.772 70.524-40.294c17.959.238 53.798-2.76 38.692-27.94z"
+              fill="url(#loaderGhostBlue)"
+              filter="url(#loaderGlow)"
+            />
+            <circle class="ghost-eye left-eye" cx="208" cy="225" r="22" />
+            <circle class="ghost-eye right-eye" cx="297" cy="225" r="22" />
+          </svg>
+        </div>
+        <p class="loading-text">Opening Campus Plus</p>
+        <div class="loading-progress" aria-hidden="true">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Static fallback shown only if WebGL is unavailable. -->
+    <div class="fallback-ghost" aria-hidden="true">
+      <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="fallbackBlue" cx="35%" cy="25%" r="75%">
+            <stop offset="0%" stop-color="#1688ff" />
+            <stop offset="42%" stop-color="#0754aa" />
+            <stop offset="100%" stop-color="#031629" />
+          </radialGradient>
+          <filter id="fallbackGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="9" result="a" />
+            <feMerge><feMergeNode in="a" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+        <path
+          d="m508.374 432.802s-46.6-39.038-79.495-275.781c-8.833-87.68-82.856-156.139-172.879-156.139-90.015 0-164.046 68.458-172.879 156.138-32.895 236.743-79.495 275.782-79.495 275.782-15.107 25.181 20.733 28.178 38.699 27.94 35.254-.478 35.254 40.294 70.516 40.294 35.254 0 35.254-35.261 70.508-35.261s37.396 45.343 72.65 45.343 37.389-45.343 72.651-45.343c35.254 0 35.254 35.261 70.508 35.261s35.27-40.772 70.524-40.294c17.959.238 53.798-2.76 38.692-27.94z"
+          fill="url(#fallbackBlue)"
+          filter="url(#fallbackGlow)"
+        />
+        <circle cx="208" cy="225" r="23" fill="#010816" />
+        <circle cx="297" cy="225" r="23" fill="#010816" />
+        <circle class="fallback-eye" cx="208" cy="225" r="9" />
+        <circle class="fallback-eye" cx="297" cy="225" r="9" />
+      </svg>
+    </div>
+
+    <!-- A guaranteed, visible cursor ghost. It works even if WebGL is unavailable. -->
+    <div id="cursor-ghost" class="cursor-ghost" aria-hidden="true">
+      <div class="cursor-ghost-aura"></div>
+      <svg class="cursor-ghost-art" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="cursorGhostBlue" x1="0.18" x2="0.82" y1="0.04" y2="1">
+            <stop offset="0%" stop-color="#1688ff" />
+            <stop offset="40%" stop-color="#0754aa" />
+            <stop offset="100%" stop-color="#031629" />
+          </linearGradient>
+          <filter id="cursorGhostGlow" x="-45%" y="-45%" width="190%" height="190%">
+            <feGaussianBlur stdDeviation="8" result="blur" />
+            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+        <path
+          d="m508.374 432.802s-46.6-39.038-79.495-275.781c-8.833-87.68-82.856-156.139-172.879-156.139-90.015 0-164.046 68.458-172.879 156.138-32.895 236.743-79.495 275.782-79.495 275.782-15.107 25.181 20.733 28.178 38.699 27.94 35.254-.478 35.254 40.294 70.516 40.294 35.254 0 35.254-35.261 70.508-35.261s37.396 45.343 72.65 45.343 37.389-45.343 72.651-45.343c35.254 0 35.254 35.261 70.508 35.261s35.27-40.772 70.524-40.294c17.959.238 53.798-2.76 38.692-27.94z"
+          fill="url(#cursorGhostBlue)"
+          filter="url(#cursorGhostGlow)"
+        />
+        <ellipse cx="208" cy="225" rx="24" ry="25" fill="#010914" />
+        <ellipse cx="297" cy="225" rx="24" ry="25" fill="#010914" />
+        <circle class="cursor-ghost-pupil" cx="208" cy="225" r="8" />
+        <circle class="cursor-ghost-pupil" cx="297" cy="225" r="8" />
+      </svg>
+    </div>
+
+    <!-- Main content -->
+    <main class="content" id="main-content">
+      <section class="quote-container" aria-labelledby="campus-plus-title">
+        <h1 class="quote" id="campus-plus-title">
+          <span>Campus</span>
+          <span>Plus</span>
+        </h1>
+        <div class="title-rule" aria-hidden="true"></div>
+        <p class="author">The Ultimate PCCOE Forum</p>
+      </section>
+      <p class="interaction-hint">Move or swipe to wake the spirit</p>
+    </main>
+
+    <noscript>
+      <style>
+        #preloader { display: none; }
+        .content { opacity: 1; }
+      </style>
+    </noscript>
+
+    <!-- Progressive shell: the typography always opens quickly; WebGL enhances it when ready. -->
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var preloader = document.getElementById('preloader');
+        var content = document.getElementById('main-content');
+        var shellRevealed = false;
+
+        window.CampusPlusRevealShell = function () {
+          if (shellRevealed) return;
+          shellRevealed = true;
+          root.classList.add('scene-revealed');
+          preloader.classList.add('fade-out');
+          content.classList.add('fade-in');
+          window.setTimeout(function () { preloader.style.display = 'none'; }, 760);
+        };
+
+        window.CampusPlusFallback = function (force) {
+          if (root.dataset.sceneState === 'ready' && !force) return;
+          if (root.dataset.sceneState === 'failed') return;
+
+          root.dataset.sceneState = 'failed';
+          root.classList.remove('webgl-ready');
+          root.classList.add('webgl-failed');
+          window.CampusPlusRevealShell();
+        };
+
+        window.addEventListener('campusplus:fallback', function () {
+          window.CampusPlusFallback(true);
+        });
+
+        // Never hold the interface hostage while WebGL modules compile.
+        window.setTimeout(window.CampusPlusRevealShell, 900);
+
+        // A long watchdog catches a blocked module or unsupported WebGL context.
+        window.setTimeout(function () {
+          if (!root.classList.contains('webgl-ready')) window.CampusPlusFallback(false);
+        }, 8000);
+      })();
+    </script>
+    <script>
+      // This lightweight DOM ghost deliberately lives outside the Three.js module:
+      // it follows the pointer whenever the no-WebGL fallback is active.
+      (function () {
+        var ghost = document.getElementById('cursor-ghost');
+        var preloader = document.getElementById('preloader');
+        if (!ghost) return;
+
+        function showGhost() {
+          ghost.classList.add('is-visible');
+        }
+
+        function moveGhost(event) {
+          var point = event.touches ? event.touches[0] : event;
+          if (!point) return;
+          if (document.documentElement.classList.contains('scene-revealed')) {
+            document.documentElement.classList.add('has-interacted');
+          }
+          var x = point.clientX;
+          var y = point.clientY;
+          var tilt = Math.max(-16, Math.min(16, (x - window.innerWidth / 2) / 34));
+          ghost.style.setProperty('--ghost-x', x + 'px');
+          ghost.style.setProperty('--ghost-y', y + 'px');
+          ghost.style.setProperty('--ghost-tilt', tilt + 'deg');
+          showGhost();
+        }
+
+        ghost.style.setProperty('--ghost-x', window.innerWidth / 2 + 'px');
+        ghost.style.setProperty('--ghost-y', window.innerHeight / 2 + 'px');
+        window.addEventListener('pointermove', moveGhost, { passive: true });
+        window.addEventListener('touchstart', moveGhost, { passive: true });
+        window.addEventListener('touchmove', moveGhost, { passive: true });
+
+        // Match the reveal timing of the main preloader.
+        var observer = new MutationObserver(function () {
+          if (preloader.classList.contains('fade-out')) {
+            showGhost();
+            observer.disconnect();
+          }
+        });
+        observer.observe(preloader, { attributes: true, attributeFilter: ['class'] });
+        window.setTimeout(showGhost, 1200);
+      })();
+    </script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
